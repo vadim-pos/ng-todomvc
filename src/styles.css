@@ -1,3 +1,9 @@
+/* ----- Fix TodoMVC's editing input overflow ----- */
+
+.todo-list li.editing .edit {
+    width: calc(100% - 44px);
+}
+
 /* ----- Media queries ----- */
 
 @media (max-width: 530px) {
