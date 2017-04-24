@@ -83,7 +83,7 @@ export class SharePopupComponent implements OnInit {
     urlCopied:boolean = false;
 
     ngOnInit() {
-        const urlAddress = `${window.location.protocol}//${window.location.host}/`;
+        const urlAddress = `${window.location.origin}${window.location.pathname}`;
         const todosData = this._todosService.getStringifiedTodos();
         this.shareUrl = urlAddress + '#/share/' + todosData;
     }
