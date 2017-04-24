@@ -1,4 +1,4 @@
-/* ----- Fix TodoMVC's editing input overflow ----- */
+/* ----- Fix TodoMVC's editing input overflow on small screen ----- */
 
 .todo-list li.editing .edit {
     width: calc(100% - 44px);
