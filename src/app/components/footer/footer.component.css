@@ -1,0 +1,20 @@
+.filters li a {
+    margin: 3px 0;
+}
+.share-link {
+    position: relative;
+    font-weight: bold;
+    color: #af5b5e;
+    cursor: pointer;
+}
+.share-link:after {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0; bottom: 0;
+    background-color: #af5b5e;
+    content: '';
+}
+.share-link.selected:after {
+    display: none;
+}

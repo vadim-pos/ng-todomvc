@@ -1,0 +1,22 @@
+<section class="todoapp">
+    <app-header></app-header>
+
+    <app-todo-list
+        *ngIf="todos.length"
+        [todos]="todos"
+        [completedTodosCount]="completedTodosCount">
+    </app-todo-list>
+    
+    <app-footer
+        *ngIf="allTodosCount"
+        (togglePopup)="onTogglePopup($event)"
+        [activeTodosCount]="activeTodosCount"
+        [completedTodosCount]="completedTodosCount"
+        [popupIsShowing]="showSharePopup">
+    </app-footer>
+
+    <app-share-popup
+        *ngIf="showSharePopup"
+        (togglePopup)="onTogglePopup($event)">
+    </app-share-popup>
+</section>

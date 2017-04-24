@@ -5,26 +5,7 @@ import { Todo } from '../../models/todo.class';
 
 @Component({
     selector: 'app-todo-item',
-    template: `
-        <li [ngClass]="{completed: todo.completed, editing: editingMode}">
-            <div class="view">
-                <input
-                    (change)="onCompletionChange()"
-                    [checked]="todo.completed"
-                    class="toggle"
-                    type="checkbox">
-                <label (dblclick)="onEditingStart(editingInput)">{{todo.title}}</label>
-                <button (click)="onRemove()" class="destroy"></button>
-            </div>
-            <input 
-                #editingInput
-                class="edit"
-                value={{todo.title}}
-                (blur)="onEditingDone(editingInput.value)"
-                (keyup.enter)="onEditingDone(editingInput.value)"
-                (keyup.escape)="onEditingCancel(editingInput)">
-        </li>
-    `
+    templateUrl: './todo-item.component.html'
 })
 export class TodoItemComponent {
     constructor(private _todosService:TodosService) {}

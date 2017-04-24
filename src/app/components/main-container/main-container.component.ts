@@ -5,18 +5,11 @@ import { TodosService } from '../../services/todos.service';
 import { Todo } from '../../models/todo.class';
 
 @Component({
-    template: `
-        <section class="todoapp">
-            <app-header></app-header>
-
-            <app-todo-list *ngIf="todos.length" [todos]="todos" [completedTodosCount]="completedTodosCount"></app-todo-list>
-            
-            <app-footer *ngIf="allTodosCount" (togglePopup)="onTogglePopup($event)" [activeTodosCount]="activeTodosCount" [completedTodosCount]="completedTodosCount" [popupIsShowing]="showSharePopup"></app-footer>
-
-            <app-share-popup *ngIf="showSharePopup" (togglePopup)="onTogglePopup($event)"></app-share-popup>
-        </section>
-    `
+    templateUrl: './main-container.component.html'
 })
+/**
+ * Main container component. Contains nested components and sends them all necessary data received from the todos service. Toggles popup window. Watches for changes in route parameters and todos service.
+ */
 export class MainContainerComponent implements OnInit {
     filter:string;
     todos:Todo[];
@@ -34,23 +27,24 @@ export class MainContainerComponent implements OnInit {
     ) {}
 
     ngOnInit() {
+        /* watch for updating data in todos service */
         this._todosService.todosUpdated.subscribe(todos => {
             if (!todos.length) { this._router.navigate(['']); }
-            this.updateTodosData();
+            this.getTodosData();
         });
-
+        /* watch for route params change */
         this._route.params.subscribe(params => {
             if (params['sharedData']) {
                 this._router.navigate(['']);
                 this._todosService.restoreTodos(params['sharedData']);
+            } else {
+                this.filter = params['filter'];
+                this.getTodosData();
             }
-
-            this.filter = params['filter'];
-            this.updateTodosData();
         });
     }
 
-    updateTodosData() {
+    getTodosData() {
         this.todos = this._todosService.getTodos(this.filter);
         this.activeTodosCount = this._todosService.getTodosCount('active');
         this.completedTodosCount = this._todosService.getTodosCount('completed');

@@ -1,0 +1,47 @@
+<footer class="footer">
+    <span class="todo-count">
+        <strong>{{activeTodosCount}}</strong> item{{(activeTodosCount === 1 ? '':'s')}} left
+    </span>
+
+    <ul class="filters">
+        <li>
+            <a
+                [routerLink]="['']"
+                routerLinkActive="selected"
+                [routerLinkActiveOptions]="{exact:true}">
+                All
+            </a>
+        </li>
+        <li>
+            <a
+                [routerLink]="['', 'active']"
+                routerLinkActive="selected"
+                [routerLinkActiveOptions]="{exact:true}">
+                Active
+            </a>
+        </li>
+        <li>
+            <a
+                [routerLink]="['', 'completed']"
+                routerLinkActive="selected"
+                [routerLinkActiveOptions]="{exact:true}">
+                Completed
+            </a>
+        </li>
+        <li>
+            <a
+                class="share-link"
+                [class.selected]="popupIsShowing"
+                (click)="onShowPopup()">
+                Share!
+            </a>
+        </li>
+    </ul>
+
+    <button 
+        *ngIf="completedTodosCount > 0"
+        (click)="onClearCompleted()"
+        class="clear-completed">
+        Clear completed
+    </button>
+</footer>

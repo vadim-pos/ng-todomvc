@@ -4,6 +4,9 @@ import { Subject } from 'rxjs/Rx';
 import { Todo } from '../models/todo.class';
 
 @Injectable()
+/**
+ * Service performs all necessary operations with todos data and notifies subscribed components after each one.
+ */
 export class TodosService {
     private _todos:Todo[];
     todosUpdated:Subject<Todo[]> = new Subject<Todo[]>();

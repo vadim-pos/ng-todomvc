@@ -1,0 +1,12 @@
+<div class="share-container">
+    <div class="share-inner">
+        <button (click)="onHidePopup()" class="share-close">&#10006;</button>
+        <textarea #urlElement class="share-text" rows="10">{{shareUrl}}</textarea>
+        <button
+            (click)="onCopy(urlElement)"
+            class="share-copy" [class.copied]="urlCopied"
+            [disabled]="urlCopied">
+            {{ urlCopied ? 'Copied!' : 'Copy URL'}}
+        </button>
+    </div>
+</div>
