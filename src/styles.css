@@ -1,4 +1,31 @@
+/* ----- Media queries ----- */
+
+@media (max-width: 530px) {
+    .footer {
+        height: 54px;
+    }
+    .filters {
+        padding: 0 20px;
+        bottom: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .todoapp {
+        min-width: 284px;
+        margin: 80px 0 20px 0;
+    }
+    .todoapp h1 {
+        top: -100px;
+        font-size: 60px;
+    }
+    .todo-list li { font-size: 20px; }
+    .new-todo, .edit { font-size: 18px; }
+    .info { margin: 30px auto 0; }
+}
+
 /* ----- Preloader ----- */
+
 .preloader {
     padding-top: 80px;
     font-size: 50px;
@@ -6,28 +33,26 @@
     text-align: center;
 }
 
-span[class^='dot-'] { opacity: 0; } /* initially hide dots */
+span[class^='dot-'] { opacity: 0; }
 .dot-one { animation: dot-one 1.5s infinite linear; }
 .dot-two { animation: dot-two 1.5s infinite linear; }
 .dot-three { animation: dot-three 1.5s infinite linear; }
 
-/* ----- Dots Animation ----- */
-
 @keyframes dot-one {
-  0% { opacity: 0; }
-  15% { opacity: 0; }
-  25% { opacity: 1; }
-  100% { opacity: 1; }
+    0% { opacity: 0; }
+    15% { opacity: 0; }
+    25% { opacity: 1; }
+    100% { opacity: 1; }
 }
 @keyframes dot-two {
-  0% { opacity: 0; }
-  40% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 1; }
+    0% { opacity: 0; }
+    40% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 1; }
 }
 @keyframes dot-three {
-  0% { opacity: 0; }
-  65% { opacity: 0; }
-  75% { opacity: 1; }
-  100% { opacity: 1; }
+    0% { opacity: 0; }
+    65% { opacity: 0; }
+    75% { opacity: 1; }
+    100% { opacity: 1; }
 }
