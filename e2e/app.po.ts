@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class Ng2TodoPage {
+export class NgTodomvcPage {
   navigateTo() {
     return browser.get('/');
   }
