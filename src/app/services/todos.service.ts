@@ -17,7 +17,7 @@ export class TodosService {
     }
 
     private _saveTodos() {
-        localStorage.setItem('todos-[postanovkin]', JSON.stringify(this._todos));
+        localStorage.setItem('todos', JSON.stringify(this._todos));
     }
 
     getTodos(filter:string):Todo[] {
